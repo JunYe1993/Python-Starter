@@ -1,3 +1,4 @@
+# coding=utf-8
 print type(1)
 print type(1L)
 print type(3.14)
@@ -34,3 +35,6 @@ print '%(real)s is %(nick)s' % {'real' : 'Justin', 'nick' : 'caterpillar'}
 print '{0} is {1}'.format('Justin', 'caterpillar')
 print '{real} is {nick}'.format(real = 'Justin', nick = 'caterpillar')
 print '{0} is {nick}'.format('Justin', nick = 'caterpillar')
+
+import sys
+print 'My platform is {pc.platform}'.format(pc = sys)
