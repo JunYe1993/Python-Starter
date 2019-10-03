@@ -7,6 +7,6 @@ url="https://www.ptt.cc/bbs/Gossiping/index.html"
 request = requests.get(url)
 content = request.content
 
-file = open('result_01.txt', 'w', encoding='UTF-8')
+file = open('result_01.txt', 'w', )
 file.write(content.decode('utf-8'))
 file.close()
