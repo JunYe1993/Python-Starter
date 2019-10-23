@@ -12,6 +12,7 @@ class Solution:
           # 做一個 stickers char counter
           stickersCounter = []
           for sticker in stickers:
+               
                tempCounter = defaultdict(int)
                for ch in sticker:
                     if ch in targetChars:
