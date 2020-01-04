@@ -4,8 +4,12 @@ import Solution
 class TestMethods(unittest.TestCase):
 
      def test_case1(self):
+          
+          # Arrange 
           testclass = Solution.Solution()
           spec = '(add 1 2)'
+
+          # Act & Assert
           self.assertEqual(testclass.evaluate(spec), 3)
 
      def test_case2(self):
