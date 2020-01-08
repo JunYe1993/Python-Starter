@@ -14,7 +14,3 @@ class Solution:
                     nxt[abs(d - x)] = max(nxt.get(abs(d - x), 0), y + min(d, x))
                dp = nxt
           return dp[0]
-
-     
-
-
