@@ -43,7 +43,7 @@ class TestMethods(unittest.TestCase):
 
           # Assert
           self.assertEqual(result, expect)
-     """
+     
      def test_case4(self):
           
           # Arrange 
@@ -57,7 +57,21 @@ class TestMethods(unittest.TestCase):
 
           # Assert
           self.assertEqual(result, expect)
-     """
+
+     def test_case5(self):
+          
+          # Arrange 
+          testclass = Solution.Solution()
+          spec1 = [1,2,1,3]
+          spec2 = 3
+
+          # Act
+          result = testclass.subarraySum(spec1, spec2)
+          expect = 3
+
+          # Assert
+          self.assertEqual(result, expect)
+     
    
 if __name__ == '__main__':
      unittest.main()
