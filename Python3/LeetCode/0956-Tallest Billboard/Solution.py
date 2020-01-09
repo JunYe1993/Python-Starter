@@ -2,7 +2,33 @@ from typing import List
 import collections
 
 class Solution:
+
      def tallestBillboard(self, rods: List[int]) -> int:
+          
+          dp = collections.defaultdict(int)
+          dp = {0: 0}
+          for rod in rods :
+               nxt = dp.copy()
+               for key, value in dp.items():
+                    nxt[key + rod] = nxt.get(key + rod, 0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     def tallestBillboardx(self, rods: List[int]) -> int:
           print()
           dp = collections.defaultdict(int)
           dp[0] = 0
