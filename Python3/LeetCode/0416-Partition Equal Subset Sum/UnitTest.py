@@ -42,5 +42,18 @@ class TestMethods(unittest.TestCase):
           # Assert
           self.assertEqual(result, expect)
 
+     def test_case4(self):
+          
+          # Arrange 
+          testclass = Solution.Solution()
+          spec = [1, 1]
+
+          # Act
+          result = testclass.canPartition(spec)
+          expect = True
+
+          # Assert
+          self.assertEqual(result, expect)
+
 if __name__ == '__main__':
      unittest.main()
