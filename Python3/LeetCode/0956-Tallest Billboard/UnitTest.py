@@ -42,5 +42,18 @@ class TestMethods(unittest.TestCase):
           # Assert
           self.assertEqual(result, expect)
 
+     def test_case4(self):
+          
+          # Arrange 
+          testclass = Solution.Solution()
+          spec = [61,45,43,54,40,53,55,47,51,59,42]
+
+          # Act
+          result = testclass.tallestBillboard(spec)
+          expect = 275
+
+          # Assert
+          self.assertEqual(result, expect)
+
 if __name__ == '__main__':
      unittest.main()

@@ -9,7 +9,7 @@ class Solution:
           # P.S. 可看出有規律能加判斷式去加速 
           dp = {0: 1}
           for num in nums :
-               # print(dp)
+               # 因為是先前的 dict 所演變(不是 + 就是 - )，先用暫存演變結果之後再取代
                tempDp = collections.defaultdict(int)
                for key, count in dp.items() :
                     tempDp[key+num] = tempDp.get(key+num, 0) + count
