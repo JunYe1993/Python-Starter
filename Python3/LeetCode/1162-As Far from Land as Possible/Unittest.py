@@ -28,5 +28,18 @@ class TestMethods(unittest.TestCase):
           # Assert
           self.assertEqual(result, expect)
 
+     def test_case3(self):
+          
+          # Arrange 
+          testclass = Solution.Solution()
+          spec = [[0,0,1,1,1],[0,1,1,0,0],[0,0,1,1,0],[1,0,0,0,0],[1,1,0,0,1]]
+          # Act
+          result = testclass.maxDistance(spec)
+          expect = 2
+
+          # Assert
+          self.assertEqual(result, expect)
+
+
 if __name__ == '__main__':
      unittest.main()
