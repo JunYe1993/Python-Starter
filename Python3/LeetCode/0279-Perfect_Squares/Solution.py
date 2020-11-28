@@ -1,4 +1,52 @@
 class Solution:
+     def numSquares(self, n: int) -> int:
+          
+          # 從上往下
+          squareMap = []
+          squareBase = 1
+          square = squareBase * squareBase
+          while square <= n:
+               squareMap.append(square)
+               squareBase += 1
+               square = squareBase * squareBase
+
+          layerCount = 0
+          curLayerNumbers = {n}
+          while curLayerNumbers:
+               layerCount += 1
+               nextLayerNumbers = set()
+               for curNumber in curLayerNumbers:
+                    for square in squareMap:
+                         if square == curNumber:
+                              return layerCount
+                         elif square > curNumber:
+                              break
+                         else:
+                              nextLayerNumbers.add(curNumber-square)
+                    curLayerNumbers = nextLayerNumbers
+          return 0
+     
+     def QnumSquares(self, n: int) -> int:
+
+          # 從下往上
+          squareMap = []
+          squareBase = 1
+          square = squareBase * squareBase
+          while square <= n:
+               squareMap.append(square)
+               squareBase += 1
+               square = squareBase * squareBase
+
+
+          dp = [0]
+          for nIndex in range(1, n+1):
+               curMin = 1000000000
+
+               for curSquare in squareMap:
+                    if curSquare <= nIndex:
+                         curMin = min(dp[nIndex-curSquare]+1, curMin)
+               dp.append(curMin)
+          return dp[n]
 
      # 4800ms
      def numSquares_alpha(self, n: int) -> int:

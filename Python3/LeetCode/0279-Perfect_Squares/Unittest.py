@@ -1,5 +1,5 @@
 import unittest
-import Solution
+from . import Solution
 
 class TestMethods(unittest.TestCase):
 
@@ -10,7 +10,7 @@ class TestMethods(unittest.TestCase):
           spec = 12
 
           # Act
-          result = testclass.numSquares_gama(spec)
+          result = testclass.numSquares(spec)
           expect = 3
 
           # Assert
@@ -22,7 +22,7 @@ class TestMethods(unittest.TestCase):
           testclass = Solution.Solution()
           spec = 13
           # Act
-          result = testclass.numSquares_gama(spec)
+          result = testclass.numSquares(spec)
           expect = 2
 
           # Assert
