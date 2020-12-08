@@ -1,1 +1,6 @@
-Python3/LeetCode/*/__pycache__/
+/.vscode/*
+
+/Learning/*/__pycache__/*
+
+/Python3/*/__pycache__/*
+/Python3/LeetCode/*/__pycache__/*
