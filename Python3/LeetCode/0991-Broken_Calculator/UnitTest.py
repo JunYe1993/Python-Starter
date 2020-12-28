@@ -23,15 +23,16 @@ class TestMethods(unittest.TestCase):
 
     def test_case4(self):
         X, Y = 1024, 1
-        expect = 39
+        expect = 1023
         result = Solution().brokenCalc(X, Y)
         self.assertEqual(expect, result)
 
     def test_case5(self):
         X, Y = 1, 1000000000
-        expect = 2284
+        expect = 39
         result = Solution().brokenCalc(X, Y)
         self.assertEqual(expect, result)
 
 if  __name__ == "__main__":
     unittest.main()
+    #TestMethods().test_case5()

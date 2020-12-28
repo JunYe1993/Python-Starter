@@ -1,25 +1,18 @@
 class Solution:
     def brokenCalc(self, X: int, Y: int) -> int:
-        minStep = [0]
-        self.dfs(X, Y, minStep)
-        return minStep[0]
+        # Method.1: X to Y (multiply and subtraction)
+        # Method.2: Y to X (division and sum)
+        # If do it with Method.1, it need to be like normal BFS.
+        # You need to record some extra path beside the shortest one.
+        # Scenario like 3->6->5->10, when X become 6, you can do either subtraction or multiply
+        # But which is the shortest one you never know until one path X become Y. 
+        # Before that you need to record both.
+        # When you do it with Method.2. You would always do division when Y > X and Y % 2 == 0.
 
-    def dfs(self, X, Y, minStep):
-        if X == Y:
-            return
-        else:
-            if X > Y:
-                minStep[0] += X-Y
-                return
-            else:
-                tempY = (Y//2) + (Y%2)    
-                if X == tempY:
-                    minStep[0] += 2 if Y % 2 else 1 
-                    return
-                elif X < tempY:
-                    minStep[0] += 3 if Y % 2 else 2 
-                    self.dfs(X*2, tempY, minStep)
-                elif X > tempY:
-                    minStep[0] += 3 if Y % 2 else 2
-                    self.dfs(X-1, tempY, minStep)
-
+        step = 0
+        while Y != X:
+            if Y == X: return step
+            elif Y < X: return step + X - Y
+            elif Y > X: Y = Y+1 if Y%2 else Y//2
+            step += 1
+        return step
