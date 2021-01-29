@@ -2,43 +2,8 @@ from typing import List
 
 class Solution:
     
-    # drop some combination not gonna 
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
-
-        nums.sort()
-        length = len(nums)
-        answer, targetMap, table = [], set(), {}
-
-        for val in nums:
-            if val not in targetMap:
-                targetMap.add(val)
-
-        for i in range(length):
-            # Skip when it's duplicate
-            if i > 0 and nums[i] == nums[i-1]: continues
-            
-            for k in reversed(range(i+1, length)):
-                # Skip when it's duplicate
-                if k < length-1 and nums[k] == nums[k+1]: continue
-
-                target = 0 - (nums[i]+nums[k])
-                if target > nums[-1]: break
-                elif target not in targetMap: continue
-                elif target not in table:
-                    table[target] = [[nums[i], nums[k], i, k]]
-                else:
-                    table[target].append([nums[i], nums[k], i, k])
-
-        for j in range(length):
-            if nums[j] in table:
-                for data in table[nums[j]]:
-                    if j > data[2] and j < data[3]:
-                        answer.append([data[0], nums[j], data[1]])
-                        data[2] = length
-        return answer
-
     # Standard answer
-    def QthreeSum(self, nums: List[int]) -> List[List[int]]:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
 
         nums.sort()
         length = len(nums)

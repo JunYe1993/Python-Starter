@@ -4,8 +4,7 @@ class Solution:
         
         # Find palindrome number first, then check it is a prime number.
         
-        # So elimiate special case 2 and 11.
-        # 2's for N < 3 case, 11's explantion is below.
+        # Elimiate special case 2 and 11.
         if N < 3: return 2
         elif 7 < N <= 11: return 11
 
@@ -15,18 +14,18 @@ class Solution:
             num = num // 10
             digitLen += 1
 
-        # If palindrome number is tens digit, thousands digit...(the number of digits is even),
-        # it would be divided by 11. It will be non-prime number except for 11 itself.
+        # Even length palindromes are divisible by 11,
+        # it will be non-prime number except for 11 itself.
         if digitLen % 2 == 0:
             return self.primePalindrome(10**(digitLen))
         else:
             halfDigitLen = digitLen//2
-            # All one digit number is palindrome number
+            # All number which length is one, is palindrome number.
             if halfDigitLen == 0:
                 for num in range(N, 10):
                     if self.isPrime(num):
                         return num
-            # If number of digits is bigger than one.
+            # If length is bigger than one.
             # Split the palindrome number into three part, left, middle, right
             # We need to find palindrome number in ascending way.
             # So first decide left side number then middle number.(right number don't matter if it's palindrome number)
@@ -48,17 +47,16 @@ class Solution:
                             if self.isPrime(num): 
                                 return num
 
-                    # If didn't find prime number than go next
+                    leftSideNum += 1
                     # The while statement just to elimiate last digit is multiple of 2 or 5
                     # which definitely not the prime number.
-                    leftSideNum += 1
                     firstNum = leftSideNum//(10**(halfDigitLen-1))
                     while firstNum % 2 == 0 or firstNum % 5 == 0:
                         leftSideNum += 10**(halfDigitLen-1)
                         firstNum = leftSideNum//(10**(halfDigitLen-1))
 
-                # If it need to more digits number to find prime number,
-                # then add 2 more digit to the number. 999 -> 10000 (3->5)
+                # If can not find prime with current length 
+                # then add 2 to length. 999 -> 10000 (3->5)
                 return self.primePalindrome(10**(digitLen+1))
 
     def isPrime(self, x: int) -> bool:
